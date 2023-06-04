@@ -1,0 +1,29 @@
+[DEFAULT]
+api_load_dirs = api.handlers,
+port = 8080
+listen = 127.0.0.1
+upload_file_path = "/data"
+
+# database
+sql_connection = mysql+pymysql://root:Ebi8WQXX67fVFhYc@127.0.0.1/default_db?charset=utf8mb4
+connection_poll_size = 200
+
+# Logging
+logging_level = INFO
+logging_path = /var/log/yeti.log
+logging_retention = "12 months"
+
+# cache(redis/memcached)
+cached_backend = "redis://127.0.0.1:6379/0"
+
+# WebSocket
+enable_websocket = off
+websocket_topic = ws_topic
+channel_driver = redis
+
+# auth type. supported: JWT
+auth_type = JWT
+secret_key = 6ba4794583c36f6c4e4be05e79dc1ef6df1161cc6737f97670e1696014ebf9b0
+token_expire_minutes = 30
+algorithm = HS256
+exclude_auth_path = /v1/token,
